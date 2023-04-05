@@ -1,4 +1,4 @@
-package com.github.wojdzie.nass;
+package com.github.wojdzie;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
