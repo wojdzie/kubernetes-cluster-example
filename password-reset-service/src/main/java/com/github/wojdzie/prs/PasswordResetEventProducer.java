@@ -11,15 +11,15 @@ class PasswordResetEventProducer {
     private final Logger LOGGER = LoggerFactory.getLogger(PasswordResetEventProducer.class);
     private final KafkaProperties kafkaProperties;
 
-    private final KafkaTemplate<String, String> kafkaTemplate;
+    private final KafkaTemplate<String, PasswordResetEvent> kafkaTemplate;
 
-    PasswordResetEventProducer(KafkaProperties kafkaProperties, KafkaTemplate<String, String> kafkaTemplate) {
+    PasswordResetEventProducer(KafkaProperties kafkaProperties, KafkaTemplate<String, PasswordResetEvent> kafkaTemplate) {
         this.kafkaProperties = kafkaProperties;
         this.kafkaTemplate = kafkaTemplate;
     }
 
-    void send(String message) {
-        LOGGER.info("Message sent: {}", message);
-        kafkaTemplate.send(kafkaProperties.topic(), message);
+    void send(PasswordResetEvent event) {
+        LOGGER.info("Message sent: {}", event);
+        kafkaTemplate.send(kafkaProperties.topic(), event);
     }
 }
