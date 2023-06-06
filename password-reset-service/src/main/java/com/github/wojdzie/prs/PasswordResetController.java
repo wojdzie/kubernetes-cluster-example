@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/password/reset")
+@RequestMapping("/prs/password/reset")
 class PasswordResetController {
 
     private final PasswordResetEventProducer producer;
