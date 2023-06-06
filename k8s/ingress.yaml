@@ -1,0 +1,29 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: cluster-ingress
+spec:
+  rules:
+    - http:
+        paths:
+          - path: /esw
+            pathType: Prefix
+            backend:
+              service:
+                name: email-service-worker
+                port:
+                  number: 80
+          - path: /nass
+            pathType: Prefix
+            backend:
+              service:
+                name: new-account-signup-service
+                port:
+                  number: 80
+          - path: /prs
+            pathType: Prefix
+            backend:
+              service:
+                name: password-reset-service-service
+                port:
+                  number: 80
