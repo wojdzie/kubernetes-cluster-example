@@ -53,7 +53,7 @@ kind: Deployment
 metadata:
   name: password-reset-service-deployment
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: password-reset-service

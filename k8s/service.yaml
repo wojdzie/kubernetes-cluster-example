@@ -8,7 +8,7 @@ spec:
     app: email-service-worker
   ports:
     - protocol: TCP
-      port: 80
+      port: 90
       targetPort: 8090
 
 ---
@@ -23,7 +23,7 @@ spec:
     app: new-account-signup-service
   ports:
     - protocol: TCP
-      port: 80
+      port: 91
       targetPort: 8091
 
 ---
@@ -31,12 +31,12 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: password-reset-service-service-load-balancer
+  name: password-reset-service-load-balancer
 spec:
   type: LoadBalancer
   selector:
     app: password-reset-service
   ports:
     - protocol: TCP
-      port: 80
+      port: 92
       targetPort: 8092

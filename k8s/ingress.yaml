@@ -3,27 +3,29 @@ kind: Ingress
 metadata:
   name: cluster-ingress
 spec:
+  ingressClassName: nginx
   rules:
-    - http:
+    - host: cluster.k8s
+      http:
         paths:
           - path: /esw
             pathType: Prefix
             backend:
               service:
-                name: email-service-worker
+                name: email-service-worker-load-balancer
                 port:
-                  number: 80
+                  number: 90
           - path: /nass
             pathType: Prefix
             backend:
               service:
-                name: new-account-signup-service
+                name: new-account-signup-service-load-balancer
                 port:
-                  number: 80
+                  number: 91
           - path: /prs
             pathType: Prefix
             backend:
               service:
-                name: password-reset-service-service
+                name: password-reset-service-load-balancer
                 port:
-                  number: 80
+                  number: 92
