@@ -9,9 +9,15 @@ import org.springframework.stereotype.Service;
 class SendEmailEventListener {
 
     private final Logger LOGGER = LoggerFactory.getLogger(SendEmailEventListener.class);
+    private final SendEmailEventRepository repository;
+
+    SendEmailEventListener(SendEmailEventRepository repository) {
+        this.repository = repository;
+    }
 
     @KafkaListener(topics = "${esw.kafka.topic}")
     void receive(SendEmailEvent event) {
+        repository.addEvent(event);
         LOGGER.info("Message received: {}", event);
     }
 }

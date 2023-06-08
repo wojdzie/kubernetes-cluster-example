@@ -10,6 +10,10 @@ class SendEmailEventRepository {
 
     private final List<SendEmailEvent> events = new ArrayList<>();
 
+    void addEvent(SendEmailEvent event) {
+        events.add(event);
+    }
+
     List<SendEmailEvent> getEvents() {
         return events;
     }
